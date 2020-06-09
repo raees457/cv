@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        .fea {
+            height: 100px;
+            padding: 10px;
+            border-radius: 10px;
+            width: 20%;
+            text-align: center;
+            font-size: 2rem;
+            border: 1px solid #868e9680;
+            margin: 10px;
+        }
+
+        .fea-active {
+            color: red;
+            background-color: #f2f2;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="row" id="">
+        <i class="fa fa-ban fea" data-active="false"></i>
+        <i class="fa fa-adjust fea" data-active="false"></i>
+        <i class="fa fa-anchor fea" data-active="false"></i>
+    </div>
+
+    <script>
+        document.querySelectorAll(".fea").forEach(el => {
+            el.addEventListener("click", () => {
+                el.classList.toggle("fea-active");
+                const dataset = el.dataset;
+                console.log(dataset)
+                if (dataset.active === "false") {
+                    dataset.active = "true"
+                } else {
+                    dataset.active = "false"
+                }
+
+                const className = el.className.split(" ")[1].split("-")[1]
+            })
+        })
+
+
+        // // Challenge 2 start
+
+        // var mikeResult = (67 + 120 + 104) / 3
+        // var johnResult = (140 + 40 + 200) / 3
+        // var marryResult = (120 + 90 + 109) / 3
+
+        // if(mikeResult > johnResult && mikeResult > marryResult){
+        //     console.log("Congratulations! Mike's Team get over to both Teams.")
+        // }else if(johnResult > mikeResult && johnResult > marryResult){
+        //     console.log("Congratulations! John's Team get over to both Teams.")
+        // }else if(marryResult > mikeResult && marryResult > johnResult){
+        //     console.log("Congratulations! Marry's Team get over to Teams.")
+        // }
+        // else {
+        //     console.log("there is a draw match")
+        // }
+        // // Challenge 2 end
+
+
+
+        // // Challenge 3 start
+
+        // calculate = () => {
+        //     let bill = [124, 268, 24]
+        //     let tips = [];
+        //     let total = []
+
+        //     bill.forEach((el) => {
+        //         if (el < 50) {
+        //             let tip = Math.floor(el * 0.2);
+        //             tips.push(tip)
+        //             total.push(tip + el)
+        //         }
+        //         else if (el >= 50 && el < 200) {
+        //             let tip = Math.floor(el * 0.15);
+        //             tips.push(tip)
+        //             total.push(tip + el)
+        //         }
+        //         else {
+        //             let tip = Math.floor(el * 0.1);
+        //             tips.push(tip)
+        //             total.push(tip + el)
+        //         }
+        //     })
+        // console.log("hotel 1 tip: " + tips[0], " hotel 2 tip: " + tips[1], " hotel 3 tip: " + tips[2])
+        // console.log("hotel 1 total bill: " + total[0], " hotel 2 total bill: " + total[1], " hotel 3 total bill: " + total[2])
+        // }
+        // calculate();
+
+        // // Challenge 3 end
+
+
+
+        //  // challenge 4 start
+
+        // let john = {
+        //     name: "John Shaw",
+        //     mass: 76,
+        //     height: 1.3,
+        //     calc: function () {
+        //         this.BMI = Math.floor(this.mass / (this.height * this.height))
+        //         return this.BMI
+        //     }
+        // }
+        // let mark = {
+        //     name: "Mark Elvin",
+        //     mass: 96,
+        //     height: 1.6,
+        //     calc: function () {
+        //         this.BMI = Math.floor(this.mass / (this.height * this.height))
+        //         return this.BMI
+        //     }
+        // }
+
+        // // Solution 1
+        // result = (MarkBMI, JohnBMI) => {
+        //     if (MarkBMI > JohnBMI) {
+        //         console.log("Mark BMI " + MarkBMI + " is greater than John BMI " + JohnBMI)
+        //     } else if (MarkBMI < JohnBMI) {
+        //         console.log("John BMI " + JohnBMI + " is greater than Mark BMI " + MarkBMI)
+        //     } else {
+        //         console.log("There is a draw happened between them")
+        //     }
+        // }
+        // let markBMI = mark.calc();
+        // let johnBMI = john.calc();
+        // // //using return method
+        // // result(markBMI, johnBMI);
+
+        // // // using this method
+        // result(mark.BMI, john.BMI);
+        // // // Solution 1 end
+
+
+        // // Solution 2 start
+        //     if (mark.calc() > john.calc()) {
+        //         console.log("Mark BMI " + mark.BMI + " is greater than John BMI " + john.BMI)
+        //     } else if(mark.calc() < john.calc()) {
+        //         console.log("John BMI " + john.BMI + " is greater than Mark BMI " + mark.BMI)
+        //     }else{
+        //         console.log("There is a draw happened between them")
+        //     }
+        // // Solution 2 end
+
+        //  // challenge 4 end
+
+
+        //  // challenge 5 start
+        let bills = [124, 48, 268, 180, 42]
+        let tips = [];
+        var john = {
+            calcTip: function () {
+                bills.forEach(el => {
+                    if (el < 50) {
+                        this.tip = el * .2;
+                        console.log(this.tip)
+                        tips.push(this.tip)
+                    } else if (el >= 50 && el < 200) {
+                        this.tip = el * .15;
+                        console.log(this.tip)
+                        tips.push(this.tip)
+                    }else{
+                        this.tip = el * .1;
+                        tips.push(this.tip)
+                        console.log(this.tip)
+                    }
+                    // return this.tip
+                })
+            }
+        }
+        john.calcTip();
+        console.log( Math.floor( tips))
+
+        //  // challenge 5 end
+
+
+
+    </script>
+
+</body>
+
+</html>
